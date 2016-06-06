@@ -415,6 +415,7 @@ The `docker_service` resource property list mostly corresponds to the options fo
 - `tls_server_key` - Path to TLS key file for docker service
 - `tls_client_cert` - Path to TLS certificate file for docker cli. Defaults to ENV['DOCKER_CERT_PATH'] if set
 - `tls_client_key` - Path to TLS key file for docker cli. Defaults to ENV['DOCKER_CERT_PATH'] if set
+- `userns_remap` - Enable user namespace remapping options - `default`, `uid`, `uid:gid`, `username`, `username:groupname` (see: [Docker User Namespaces](see: https://docs.docker.com/v1.10/engine/reference/commandline/daemon/#daemon-user-namespace-options))
 - `default_ulimit` - Set default ulimit settings for containers
 - `http_proxy` - ENV variable set before for Docker daemon starts
 - `https_proxy` - ENV variable set before for Docker daemon starts
@@ -1058,6 +1059,7 @@ Most `docker_container` properties are the `snake_case` version of the `CamelCas
 - `signal` - The signal to send when using the `:kill` action. Defaults to `SIGTERM`.
 - `tty` - Boolean value to allocate a pseudo-TTY. Defaults to `false`.
 - `user` - A string value specifying the user inside the container.
+- `userns_mode` - Modify the user namespace mode - Defaults to `nil`, example option: `host`
 - `volumes` - An Array of paths inside the container to expose. Does the same thing as the `VOLUME` directive in a Dockerfile, but works on container creation.
 - `volumes_from` - A list of volumes to inherit from another container. Specified in the form `<container name>[:<ro|rw>]`
 - `working_dir` - A string specifying the working directory for commands to run in.
